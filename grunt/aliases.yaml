@@ -1,0 +1,24 @@
+default:
+  - 'build'
+  - 'copy:build'
+  - 'express:dev'
+  - 'watch'
+  
+prod:
+  - 'build'
+  - 'uglify'
+  - 'cssmin'
+  - 'copy:build'
+  
+build:
+  - 'clean'
+  - 'copy:dev'
+  - 'lint'
+  - 'sass'
+  
+dist:
+  - 'prod'
+  - 'copy:dist'
+
+lint:
+  - 'jshint'
